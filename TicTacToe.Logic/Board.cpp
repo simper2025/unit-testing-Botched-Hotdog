@@ -61,9 +61,11 @@ char Board::GameStatus()
 			break;
 		}
 	}
+	if (Result != ' ') return Result;
 
-	int ColumnX;
-	int ColumnO;
+
+	int ColumnX = 0;
+	int ColumnO = 0;
 	for (int i = 0; i < 3; i++)  // Columns
 	{
 		for (int ii = 0; ii < 3; ii++)
@@ -87,6 +89,8 @@ char Board::GameStatus()
 			break;
 		}
 	}
+	if (Result != ' ') return Result;
+
 	
 	if (grid[1][1] != ' ')  // Diagonal
 	{
@@ -100,6 +104,8 @@ char Board::GameStatus()
 			Result = Player;
 		}
 	}
+	if (Result != ' ') return Result;
+
 
 	bool bIsBoardNotFull = false;
 	for (int i = 0; i < 3; i++)  // Board Full
@@ -117,7 +123,6 @@ char Board::GameStatus()
 	{
 		Result = 'T';
 	}
-	
 	return Result;
 }
 

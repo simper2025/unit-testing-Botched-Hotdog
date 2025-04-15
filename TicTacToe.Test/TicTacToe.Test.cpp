@@ -97,5 +97,27 @@ namespace TicTacToeTest
 			Assert::AreEqual('X', b.GetSquare(2, 0));
 		}
 
+
+		TEST_METHOD(GameStatus_XRowWin)
+		{
+			Board b;
+			char setup[3][3] = { {' ',' ',' '}, {'X', 'X', 'X'}, {' ', ' ', ' '} };
+			b.SetBoard(setup);
+			Assert::AreEqual('X', b.GameStatus());
+		}
+		TEST_METHOD(GameStatus_XColumnWin)
+		{
+			Board b;
+			char setup[3][3] = { {' ',' ',' '}, {'X', 'X', 'X'}, {' ', ' ', ' '} };
+			b.SetBoard(setup);
+			Assert::AreEqual('X', b.GameStatus());
+		}
+		TEST_METHOD(GameStatus_XDiagonalWin)
+		{
+			Board b;
+			char setup[3][3] = { {'X',' ',' '}, {' ', 'X', ' '}, {' ', ' ', 'X'} };
+			b.SetBoard(setup);
+			Assert::AreEqual('X', b.GameStatus());
+		}
 	};
 }
