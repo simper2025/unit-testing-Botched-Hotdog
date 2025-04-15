@@ -105,19 +105,46 @@ namespace TicTacToeTest
 			b.SetBoard(setup);
 			Assert::AreEqual('X', b.GameStatus());
 		}
+
 		TEST_METHOD(GameStatus_XColumnWin)
 		{
 			Board b;
-			char setup[3][3] = { {' ',' ',' '}, {'X', 'X', 'X'}, {' ', ' ', ' '} };
+			char setup[3][3] = { {' ','X',' '}, {' ', 'X', ' '}, {' ', 'X', ' '} };
 			b.SetBoard(setup);
 			Assert::AreEqual('X', b.GameStatus());
 		}
+
 		TEST_METHOD(GameStatus_XDiagonalWin)
 		{
 			Board b;
 			char setup[3][3] = { {'X',' ',' '}, {' ', 'X', ' '}, {' ', ' ', 'X'} };
 			b.SetBoard(setup);
 			Assert::AreEqual('X', b.GameStatus());
+		}
+
+
+		TEST_METHOD(GameStatus_YRowWin)
+		{
+			Board b;
+			char setup[3][3] = { {' ',' ',' '}, {'O', 'O', 'O'}, {' ', ' ', ' '} };
+			b.SetBoard(setup);
+			Assert::AreEqual('O', b.GameStatus());
+		}
+
+		TEST_METHOD(GameStatus_YColumnWin)
+		{
+			Board b;
+			char setup[3][3] = { {' ',' ','O'}, {' ', ' ', 'O'}, {' ', ' ', 'O'} };
+			b.SetBoard(setup);
+			Assert::AreEqual('O', b.GameStatus());
+		}
+
+		TEST_METHOD(GameStatus_YDiagonalWin)
+		{
+			Board b;
+			char setup[3][3] = { {'O',' ',' '}, {' ', 'O', ' '}, {' ', ' ', 'O'} };
+			b.SetBoard(setup);
+			Assert::AreEqual('O', b.GameStatus());
 		}
 	};
 }
