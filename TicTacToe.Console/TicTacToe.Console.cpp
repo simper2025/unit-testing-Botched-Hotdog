@@ -13,7 +13,7 @@ int main() {
     int currentPlayer = 1;
     int row, col;
 
-    while (board.GameStatus()) {
+    while (board.GameStatus() == ' ') {
         // Display the board
         char token = (currentPlayer == 1) ? 'X' : 'O';
         std::cout << "Player " << token << "'s turn:\n";
@@ -33,7 +33,7 @@ int main() {
 
     // Display the final board
     std::cout << "Game Over!" << std::endl;
-    if (board.GameStatus()) {
+    if (board.GameStatus() == 'T') {
         std::cout << "Game is a draw." << std::endl;
     }
     else {
