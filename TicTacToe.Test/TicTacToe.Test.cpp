@@ -15,17 +15,17 @@ namespace TicTacToeTest
 			Assert::AreEqual(true, true);
 		}
 
-		//TEST_METHOD(TestSetSquare)
-		//{
-		//	//Arrange
-		//	Board b;
-		//	
-		//	//Act
-		//	b.SetSquare(0, 0, 'X');
-
-		//	//Assert
-		//	Assert::AreEqual('X', b.GetSquare(0,0));
-		//}
+		TEST_METHOD(TestSetSquare)
+		{
+			//Arrange
+			Board b;
+			
+			//Act
+			b.SetSquare(0, 0, 'X');
+		
+			//Assert
+			Assert::AreEqual('X', b.GetSquare(0,0));
+		}
 
 		//TEST_METHOD(TestBoardCreate)
 		//{
