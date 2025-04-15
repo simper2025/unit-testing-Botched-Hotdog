@@ -4,7 +4,13 @@
 
 void Board::SetBoard(char setup[3][3])
 {
-	
+	for (int i = 0; i < 3; i++)
+	{
+		for (int ii = 0; i < 3; i++)
+		{
+			grid[i][ii] = setup[i][ii];
+		}
+	}
 }
 
 char Board::GetSquare(int row, int col) const
@@ -27,6 +33,8 @@ bool Board::SetSquare(int row, int col, char player)
 
 char Board::GameStatus()
 {
+	
+	
 	return ' ';
 }
 
