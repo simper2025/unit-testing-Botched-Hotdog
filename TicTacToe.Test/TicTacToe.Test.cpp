@@ -10,12 +10,18 @@ namespace TicTacToeTest
 	{
 	public:
 
-		TEST_METHOD(TestTrue)
+		TEST_METHOD(TestTrue_Pass)
 		{
 			Assert::AreEqual(true, true);
 		}
 
-		TEST_METHOD(TestSetSquare)
+		TEST_METHOD(TestTrue_Fail)
+		{
+			Assert::AreEqual(false, true);
+		}
+
+
+		TEST_METHOD(TestSetSquare_Pass)
 		{
 			//Arrange
 			Board b;
@@ -26,6 +32,7 @@ namespace TicTacToeTest
 			//Assert
 			Assert::AreEqual('X', b.GetSquare(0,0));
 		}
+
 
 		TEST_METHOD(TestSetTwoSquares_Fail)
 		{
@@ -53,6 +60,7 @@ namespace TicTacToeTest
 			Assert::AreEqual('O', b.GetSquare(2, 1));
 		}
 
+
 		TEST_METHOD(TestBoardCreate)
 		{
 			Board b;
@@ -60,6 +68,7 @@ namespace TicTacToeTest
 			b.SetBoard(setup);
 			Assert::AreEqual('X', b.GetSquare(0, 0));
 		}
+
 		TEST_METHOD(TestBoardCreate_1)
 		{
 			Board b;
@@ -67,6 +76,7 @@ namespace TicTacToeTest
 			b.SetBoard(setup);
 			Assert::AreEqual('O', b.GetSquare(1, 1));
 		}
+
 		TEST_METHOD(TestBoardCreate_3)
 		{
 			Board b;
