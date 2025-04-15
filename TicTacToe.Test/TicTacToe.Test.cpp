@@ -146,5 +146,14 @@ namespace TicTacToeTest
 			b.SetBoard(setup);
 			Assert::AreEqual('O', b.GameStatus());
 		}
+
+
+		TEST_METHOD(GameStatus_Tie)
+		{
+			Board b;
+			char setup[3][3] = { {'X','X','O'}, {'O', 'O', 'X'}, {'X', 'O', 'X'} };
+			b.SetBoard(setup);
+			Assert::AreEqual('T', b.GameStatus());
+		}
 	};
 }

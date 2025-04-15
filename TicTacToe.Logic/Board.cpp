@@ -35,10 +35,11 @@ char Board::GameStatus()
 {
 	char Result = ' ';
 	
-	int RowX = 0;
-	int RowO = 0;
 	for (int i = 0; i < 3; i++)  // Rows
 	{
+		int RowX = 0;
+		int RowO = 0;
+
 		for (int ii = 0; ii < 3; ii++)
 		{
 			if (grid[i][ii] != ' ')
@@ -47,7 +48,6 @@ char Board::GameStatus()
 
 				(Player == 'X') ? RowX++ : RowO++;
 			}
-
 		}
 
 		if (RowX == 3)
@@ -64,15 +64,16 @@ char Board::GameStatus()
 	if (Result != ' ') return Result;
 
 
-	int ColumnX = 0;
-	int ColumnO = 0;
 	for (int i = 0; i < 3; i++)  // Columns
 	{
+		int ColumnX = 0;
+		int ColumnO = 0;
+		
 		for (int ii = 0; ii < 3; ii++)
 		{
-			if (grid[i][ii] != ' ')
+			if (grid[ii][i] != ' ')
 			{
-				char Player = grid[i][ii];
+				char Player = grid[ii][i];
 
 				(Player == 'X') ? ColumnX++ : ColumnO++;
 			}
