@@ -6,7 +6,7 @@ void Board::SetBoard(char setup[3][3])
 {
 	for (int i = 0; i < 3; i++)
 	{
-		for (int ii = 0; i < 3; i++)
+		for (int ii = 0; ii < 3; ii++)
 		{
 			grid[i][ii] = setup[i][ii];
 		}

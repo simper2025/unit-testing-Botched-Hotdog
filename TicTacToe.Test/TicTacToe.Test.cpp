@@ -60,6 +60,20 @@ namespace TicTacToeTest
 			b.SetBoard(setup);
 			Assert::AreEqual('X', b.GetSquare(0, 0));
 		}
+		TEST_METHOD(TestBoardCreate_1)
+		{
+			Board b;
+			char setup[3][3] = { {' ','X',' '}, {'O', 'O', ' '}, {' ', 'O', ' '} };
+			b.SetBoard(setup);
+			Assert::AreEqual('O', b.GetSquare(1, 1));
+		}
+		TEST_METHOD(TestBoardCreate_3)
+		{
+			Board b;
+			char setup[3][3] = { {'X',' ','O'}, {' ', 'X', ' '}, {'X', ' ', ' '} };
+			b.SetBoard(setup);
+			Assert::AreEqual('X', b.GetSquare(2, 0));
+		}
 
 	};
 }
