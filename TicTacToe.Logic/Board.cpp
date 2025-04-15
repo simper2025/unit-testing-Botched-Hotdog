@@ -35,8 +35,8 @@ char Board::GameStatus()
 {
 	char Result = ' ';
 	
-	int RowX;
-	int RowO;
+	int RowX = 0;
+	int RowO = 0;
 	for (int i = 0; i < 3; i++)  // Rows
 	{
 		for (int ii = 0; ii < 3; ii++)
@@ -48,6 +48,17 @@ char Board::GameStatus()
 				(Player == 'X') ? RowX++ : RowO++;
 			}
 
+		}
+
+		if (RowX == 3)
+		{
+			Result = 'X';
+			break;
+		}
+		else if (RowO == 3)
+		{
+			Result = 'O';
+			break;
 		}
 	}
 
@@ -61,17 +72,50 @@ char Board::GameStatus()
 			{
 				char Player = grid[i][ii];
 
-				(Player == 'X') ? RowX++ : RowO++;
+				(Player == 'X') ? ColumnX++ : ColumnO++;
 			}
+		}
+
+		if (ColumnX == 3)
+		{
+			Result = 'X';
+			break;
+		}
+		else if (ColumnO == 3)
+		{
+			Result = 'O';
+			break;
 		}
 	}
 	
 	if (grid[1][1] != ' ')  // Diagonal
 	{
 		char Player = grid[1][1];
-		bool bHasDiagonal = false;
 
-		if (bHasDiagonal) Result = Player;
+		bool PositiveDiagonal = (grid[2][0] == Player && grid[0][2] == Player);
+		bool NegativeDiagonal = (grid[0][0] == Player && grid[2][2] == Player);
+		
+		if (PositiveDiagonal || NegativeDiagonal)
+		{
+			Result = Player;
+		}
+	}
+
+	bool bIsBoardNotFull = false;
+	for (int i = 0; i < 3; i++)  // Board Full
+	{
+		for (int ii = 0; ii < 3; ii++)
+		{
+			if (grid[i][ii] == ' ')
+			{
+				bIsBoardNotFull = true;
+				break;
+			}
+		}
+	}
+	if (!bIsBoardNotFull)
+	{
+		Result = 'T';
 	}
 	
 	return Result;
