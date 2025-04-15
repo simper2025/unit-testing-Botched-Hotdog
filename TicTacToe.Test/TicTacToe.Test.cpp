@@ -33,6 +33,18 @@ namespace TicTacToeTest
 			Assert::AreEqual('X', b.GetSquare(0,0));
 		}
 
+		TEST_METHOD(TestSetSquare_Fail)
+		{
+			//Arrange
+			Board b;
+
+			//Act
+			b.SetSquare(0, 0, 'X');
+
+			//Assert
+			Assert::AreEqual('X', b.GetSquare(0, 0));
+		}
+
 
 		TEST_METHOD(TestSetTwoSquares_Fail)
 		{
