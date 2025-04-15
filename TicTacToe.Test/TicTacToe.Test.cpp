@@ -27,6 +27,32 @@ namespace TicTacToeTest
 			Assert::AreEqual('X', b.GetSquare(0,0));
 		}
 
+		TEST_METHOD(TestSetTwoSquares_Fail)
+		{
+			//Arrange
+			Board b;
+
+			//Act
+			b.SetSquare(0, 0, 'X');
+			b.SetSquare(0, 0, 'O');  // Cant Overwrite spot!
+
+			//Assert
+			Assert::AreEqual('O', b.GetSquare(0, 0));
+		}
+
+		TEST_METHOD(TestSetTwoSquares_Pass)
+		{
+			//Arrange
+			Board b;
+
+			//Act
+			b.SetSquare(0, 0, 'X');
+			b.SetSquare(2, 1, 'O');
+
+			//Assert
+			Assert::AreEqual('O', b.GetSquare(2, 1));
+		}
+
 		//TEST_METHOD(TestBoardCreate)
 		//{
 		//	Board b;
