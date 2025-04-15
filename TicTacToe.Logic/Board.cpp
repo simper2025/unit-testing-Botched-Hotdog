@@ -33,8 +33,47 @@ bool Board::SetSquare(int row, int col, char player)
 
 char Board::GameStatus()
 {
+	char Result = ' ';
 	
+	int RowX;
+	int RowO;
+	for (int i = 0; i < 3; i++)  // Rows
+	{
+		for (int ii = 0; ii < 3; ii++)
+		{
+			if (grid[i][ii] != ' ')
+			{
+				char Player = grid[i][ii];
+
+				(Player == 'X') ? RowX++ : RowO++;
+			}
+
+		}
+	}
+
+	int ColumnX;
+	int ColumnO;
+	for (int i = 0; i < 3; i++)  // Columns
+	{
+		for (int ii = 0; ii < 3; ii++)
+		{
+			if (grid[i][ii] != ' ')
+			{
+				char Player = grid[i][ii];
+
+				(Player == 'X') ? RowX++ : RowO++;
+			}
+		}
+	}
 	
-	return ' ';
+	if (grid[1][1] != ' ')  // Diagonal
+	{
+		char Player = grid[1][1];
+		bool bHasDiagonal = false;
+
+		if (bHasDiagonal) Result = Player;
+	}
+	
+	return Result;
 }
 
